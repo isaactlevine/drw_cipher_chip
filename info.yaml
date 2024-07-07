@@ -1,0 +1,56 @@
+---
+# TinyTapeout project information
+project:
+  wokwi_id:    0
+  source_files:
+    - artistic_puf_cipher_asic.v
+    - player.v
+  top_module:  "meriac_tt02_play_tune"
+
+# The following fields are optional
+documentation: 
+  author:       "Your Name"
+  title:        "Artistic PUF Cipher ASIC"
+  description:  "Implements a PUF-based cipher for encoding Chinese characters"
+  how_it_works: "Uses ring oscillators as a PUF and encodes Chinese characters"
+  how_to_test:  "Provide clock on io_in[0], reset on io_in[1], challenge on io_in[5:2]. Read encoded_char from io_out[7:0]"
+  external_hw:  "None required"
+  language:     "Verilog"
+  doc_link:     ""
+
+# Longer description of how the project works
+long_description: |
+  This project implements a Physically Unclonable Function (PUF) based cipher
+  that encodes Chinese characters. It uses an array of ring oscillators to generate
+  unique responses based on manufacturing variations. These responses are then used
+  to encode characters from the phrase "莫见乎隐，莫显乎微".
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+testing_instructions: |
+  1. Apply clock signal to io_in[0]
+  2. Apply reset signal to io_in[1]
+  3. Apply a 4-bit challenge to io_in[5:2]
+  4. Read the lower 8 bits of the encoded character from io_out[7:0]
+  5. Observe how the encoded output changes with different challenges and over time
+
+# A description of what the inputs do
+inputs:
+  - clock
+  - reset
+  - challenge[0]
+  - challenge[1]
+  - challenge[2]
+  - challenge[3]
+  - none
+  - none
+
+# A description of what the outputs do
+outputs:
+  - encoded_char[0]
+  - encoded_char[1]
+  - encoded_char[2]
+  - encoded_char[3]
+  - encoded_char[4]
+  - encoded_char[5]
+  - encoded_char[6]
+  - encoded_char[7]
