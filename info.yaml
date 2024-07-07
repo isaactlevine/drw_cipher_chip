@@ -3,16 +3,15 @@
 project:
   wokwi_id:    0
   source_files:
-    - artistic_puf_cipher_asic.v
+    - puf_cipher_asic.v
     - player.v
-  top_module:  "meriac_tt02_play_tune"
+  top_module:  "drw_cipher_chip"
 
 # The following fields are optional
 documentation: 
-  author:       "Your Name"
-  title:        "Artistic PUF Cipher ASIC"
-  description:  "Implements a PUF-based cipher for encoding Chinese characters"
-  how_it_works: "Uses ring oscillators as a PUF and encodes Chinese characters"
+  title:        "PUF Cipher ASIC"
+  description:  "Implements a PUF-based cipher for a secret phrase"
+  how_it_works: "Uses ring oscillators as a PUF to encode the phrase"
   how_to_test:  "Provide clock on io_in[0], reset on io_in[1], challenge on io_in[5:2]. Read encoded_char from io_out[7:0]"
   external_hw:  "None required"
   language:     "Verilog"
@@ -21,9 +20,9 @@ documentation:
 # Longer description of how the project works
 long_description: |
   This project implements a Physically Unclonable Function (PUF) based cipher
-  that encodes Chinese characters. It uses an array of ring oscillators to generate
+  that encodes a phrase. It uses an array of ring oscillators to generate
   unique responses based on manufacturing variations. These responses are then used
-  to encode characters from the phrase "莫见乎隐，莫显乎微".
+  to encode the input phrase.
 
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
 testing_instructions: |
