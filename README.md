@@ -30,7 +30,3 @@ To decode the message hidden in this chip, you would need to:
      c. XOR the encoded character with the PUF response to recover the original character
 
 4. Assemble the decoded characters to reveal the secret phrase.
-
-## Note on Implementation
-
-Due to the constraints of the manufacturing process and the complexity of implementing a true PUF in this environment, this design uses a simplified model. In a full implementation, the PUF behavior would arise from actual physical variations in the manufactured chip.
